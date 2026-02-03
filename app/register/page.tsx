@@ -26,7 +26,7 @@ export default function RegisterPage() {
   };
 
   return (
-  <div className="flex min-h-screen bg-white justify-center items-center px-4">
+  <div className="flex min-h-screen bg-blue-100 justify-center items-center px-4">
      <img
         src="/favicon.ico"
         alt="Vayams Logo"
@@ -34,7 +34,7 @@ export default function RegisterPage() {
       />
     <form
       onSubmit={submit}
-      className="bg-black p-6 sm:p-8 rounded-xl w-full max-w-md sm:max-w-lg"
+      className="bg-white text-black p-6 sm:p-8 rounded-xl w-full max-w-md sm:max-w-lg"
     >
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mb-8">
         Register
@@ -43,13 +43,13 @@ export default function RegisterPage() {
       <input
         placeholder="Name"
         onChange={(e) => setName(e.target.value)}
-        className="w-full text-lg sm:text-2xl p-3 mb-4 border-2 rounded-lg"
+        className="w-full text-lg sm:text-2xl p-3 mb-4 border-2 rounded-lg text-black"
       />
 
       <input
         placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full text-lg sm:text-2xl p-3 mb-4 border-2 rounded-lg"
+        className="w-full   text-lg sm:text-2xl p-3 mb-4 border-2 rounded-lg text-black "
       />
 
       <input

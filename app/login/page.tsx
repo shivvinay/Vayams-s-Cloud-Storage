@@ -26,14 +26,14 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-white justify-center items-center px-4">
+    <div className="flex min-h-screen bg-blue-100 justify-center items-center px-4">
       <img
         src="/favicon.ico"
         alt="Vayams Logo"
         className="fixed top-3 left-3 w-16 h-16 z-50 rounded-2xl"
       />
 
-      <div className="w-full max-w-md sm:max-w-lg bg-black p-6 sm:p-8 rounded-xl">
+      <div className="w-full max-w-md sm:max-w-lg bg-gray-300 text-black p-6 sm:p-8 rounded-xl">
         <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mb-8">
           Login
         </h2>
@@ -49,7 +49,7 @@ export default function RegisterPage() {
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full text-lg sm:text-2xl p-3 mb-6 border-2 rounded-lg"
+            className="w-full text-lg sm:text-2xl p-3 mb-6 border-2 rounded-lg text-black"
           />
 
           <button className="w-full text-lg sm:text-2xl py-3 border-4 bg-amber-800 border-b-emerald-950 hover:bg-amber-400 rounded-lg">

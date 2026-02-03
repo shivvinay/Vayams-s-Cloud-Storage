@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -33,7 +35,7 @@ const UploadPage = () => {
     }
   };
 
-  /* ✅ FIXED UPLOAD (NO CORS)
+  // ✅ FIXED UPLOAD (NO CORS)
   const uploadHandle = async () => {
     if (!file) {
       alert("Please select a file");
@@ -73,59 +75,6 @@ const UploadPage = () => {
       setStatus("Upload failed ❌");
     }
   };
-*/
-
-  const uploadHandle = async () => {
-    if (!file) {
-      alert("Please select a file");
-      return;
-    }
-
-    try {
-      setStatus("Requesting upload URL...");
-
-      // 1️⃣ Get signed URL
-      const res = await fetch("/api/upload-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fileName: file.name,
-          fileType: file.type,
-        }),
-      });
-
-      const { uploadUrl, key } = await res.json();
-
-      // 2️⃣ Upload directly to MinIO (NO size limit)
-      setStatus("Uploading directly to storage...");
-
-      await fetch(uploadUrl, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": file.type,
-        },
-      });
-
-      const fileData = {
-        name: file.name,
-        objectName: key,
-        mimeType: file.type,
-        size: file.size,
-        url: `https://minio.vayams.in/vayam/${key}`,
-      };
-
-      // 3️⃣ Save metadata to MongoDB
-      await mongoUploadFile(fileData);
-
-      setStatus("Upload successful ✅");
-      setFile(null);
-      if (inputRef.current) inputRef.current.value = "";
-    } catch (err) {
-      console.error(err);
-      setStatus("Upload failed ❌");
-    }
-  };
 
   const logout = async () => {
     await fetch("/api/logout", { method: "POST" });
@@ -156,6 +105,7 @@ const UploadPage = () => {
 
       <div className="flex flex-col gap-4 w-96">
         <h1 className="text-xl font-bold text-center top-44">UPLOAD PAGE</h1>
+        
 
         <input
           ref={inputRef}
